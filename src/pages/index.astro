@@ -5,6 +5,7 @@ import Navigation from "../components/navigation";
 import RootLayout from "../layouts/RootLayout.astro";
 import WarpBackground from "../components/warp-background";
 import AvailableForWork from "../components/available.astro";
+import { PatternShapes } from "@paper-design/shaders-react";
 ---
 
 <RootLayout>
@@ -14,13 +15,20 @@ import AvailableForWork from "../components/available.astro";
     >
       <div class="absolute w-full h-dvh -z-10">
         <WarpBackground
-          color1="#09090b"
+          color1="#4b4b4b"
           color2="#27272a"
           color3="#52525b"
-          speed={0.1}
-          swirl={0.1}
-          swirlIterations={1}
-          shapeScale={0.3}
+          proportion={0.67}
+          distortion={0.0}
+          softness={0.5}
+          swirl={0.15}
+          speed={0.8}
+          shape={PatternShapes.Stripes}
+          swirlIterations={0}
+          shapeScale={0.74}
+          scale={0.76}
+          rotation={0.5}
+          imageUrl="/background.jpg"
           client:load
         />
       </div>

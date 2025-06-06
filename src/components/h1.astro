@@ -1,21 +1,44 @@
 ---
 import clsx from "clsx/lite";
+import { animate, stagger, inView } from "motion";
 
 type Props = {
-    className?: string;
-    size?: "default" | "large";
-}
+  className?: string;
+  size?: "default" | "large";
+};
 
 const { size = "default", className } = Astro.props;
+
+// inView(
+//   ".animated-h1",
+//   (element) => {
+//     animate(
+//       element,
+//       { opacity: [0, 1], y: [50, 0] },
+//       { ease: [0.39, 0.24, 0.3, 1], duration: 1 }
+//     );
+
+//     const cards = element.querySelectorAll(".card");
+//     if (cards.length > 0) {
+//       animate(
+//         cards,
+//         { opacity: [0, 1], y: [25, 0] },
+//         { type: "spring", delay: stagger(0.25, { startDelay: 0.25 }) }
+//       );
+//     }
+//   },
+//   { amount: 0.25 }
+// );
 ---
 
 <h1
-    class={clsx(
-        "text-white font-bold text-balance",
-        size === "default" && "text-4xl md:text-6xl xl:text-8xl tracking-tight",
-        size === "large" && "text-8xl md:text-[120px] lg:text-[160px] tracking-tighter",
-        className,
-    )}
+  class={clsx(
+    "text-white font-bold text-balance",
+    size === "default" && "text-4xl md:text-6xl xl:text-8xl tracking-tight",
+    size === "large" &&
+      "text-8xl md:text-[120px] lg:text-[160px] tracking-tighter",
+    className
+  )}
 >
-    <slot />
+  <slot />
 </h1>
