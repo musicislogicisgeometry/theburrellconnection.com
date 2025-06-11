@@ -1,0 +1,23 @@
+collections:
+  - name: "blog" # Used in routes, e.g., /admin/collections/blog
+    label: "Blog" # Used in the UI
+    folder: "src/content/articles" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields for each document, usually in frontmatter
+      - { label: "Layout", name: "layout", widget: "hidden", default: "blog" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "thumbnail", widget: "image" }
+      - { label: "Rating (scale of 1-5)", name: "rating", widget: "number" }
+      - { label: "Body", name: "body", widget: "markdown" }
+# isDraft: false
+# title: Make Something Heavy
+# snippet: We're creating more than ever, but it weighs nothing.
+# slug: make-something-heavy
+# author: Anu Atluru
+# category: Craft
+# readingDuration: 1
+# pubDate: 2025 3 9
+# coverAlt: Women Holding Things - Maira Kalman, 2022.
+# originalLink: https://www.workingtheorys.com/p/make-something-heavy
+# cover: https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Facc54571-c711-44a0-a529-a501d8565466_680x878.jpeg
