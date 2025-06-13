@@ -1,17 +1,17 @@
 // @ts-check
 import { defineConfig, fontProviders } from "astro/config";
 
-import tailwindcss from "@tailwindcss/vite";
 import react from "@astrojs/react";
 
-import vercel from "@astrojs/vercel";
+import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  output: "server",
+  output: "static",
   site: process.env.CI
     ? "https://theburrellconnection.com"
     : "http://localhost:4321",
+
   vite: {
     plugins: [tailwindcss()],
   },
@@ -28,8 +28,6 @@ export default defineConfig({
       },
     ],
   },
-
-  adapter: vercel(),
 });
 
 // import { defineConfig } from 'astro/config'
