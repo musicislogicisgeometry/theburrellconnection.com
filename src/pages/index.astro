@@ -1,5 +1,4 @@
 ---
-import { PatternShapes } from "@paper-design/shaders-react";
 import { Image } from "astro:assets";
 import ACGenerator from "../assets/ac-generator.jpg";
 import ElectricMotor from "../assets/electro-magnetic-motor.jpg";
@@ -8,7 +7,6 @@ import AvailableForWork from "../components/available.astro";
 import H1 from "../components/h1.astro";
 import Link from "../components/link.astro";
 import Navigation from "../components/navigation";
-import WarpBackground from "../components/warp-background";
 import RootLayout from "../layouts/RootLayout.astro";
 
 // TODO from markdown collection
@@ -40,7 +38,21 @@ const records = [
       class="group relative w-full min-h-dvh flex items-center justify-center"
     >
       <div class="absolute w-full h-dvh -z-10">
-        <WarpBackground
+        <img
+          src={"/background.jpg"}
+          alt="Background"
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            pointerEvents: "none",
+            opacity: 0.85,
+          }}
+        />
+        <!-- <WarpBackground
           color1="#4b4b4b"
           color2="#27272a"
           color3="#52525b"
@@ -56,7 +68,7 @@ const records = [
           rotation={0.5}
           imageUrl="/background.jpg"
           client:load
-        />
+        /> -->
       </div>
 
       <div
@@ -97,7 +109,7 @@ const records = [
 
         <p class="text-xl xl:text-2xl text-zinc-500 text-balance">
           <a
-            href="https://en.wikipedia.org/wiki/Nikola_Tesla"
+            href="theburrellconnection.com"
             target="_blank"
             class="underline underline-offset-4 decoration-zinc-400 hover:text-zinc-50 hover:decoration-zinc-200"
           >
@@ -113,7 +125,7 @@ const records = [
           Achievements
         </h2>
 
-        <ul class="px-4 text-zinc-400 list-disc list-outside">
+        <!-- <ul class="px-4 text-zinc-400 list-disc list-outside">
           <li>Alternating Current (AC) System</li>
           <li>Tesla Coil</li>
           <li>Induction Motor</li>
@@ -121,7 +133,7 @@ const records = [
           <li>Radio and Remote Control</li>
           <li>Hydroelectric Power at Niagara Falls</li>
           <li>X-Ray Imaging</li>
-        </ul>
+        </ul> -->
       </div>
     </div>
 
