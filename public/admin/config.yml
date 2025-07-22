@@ -9,58 +9,6 @@ media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
 
 collections:
-  - name: "articles"
-    label: "Articles"
-    folder: "src/content/articles"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - name: "cover"
-        label: "Cover Image"
-        widget: "image"
-        required: false
-      - name: "coverAlt"
-        label: "Cover Alt Text"
-        widget: "string"
-      - name: "title"
-        label: "Title"
-        widget: "string"
-      - name: "slug"
-        label: "Slug"
-        widget: "string"
-      - name: "snippet"
-        label: "Snippet"
-        widget: "text"
-      - name: "category"
-        label: "Category"
-        widget: "string"
-      - name: "pubDate"
-        label: "Publication Date"
-        widget: "datetime"
-      - name: "isDraft"
-        label: "Draft?"
-        widget: "boolean"
-        default: false
-      - name: "updatedDate"
-        label: "Updated Date"
-        widget: "datetime"
-        required: false
-      - name: "author"
-        label: "Author"
-        widget: "string"
-        default: "Retro Rocket Team"
-      - name: "relatedArticles"
-        label: "Related Articles"
-        widget: "relation"
-        collection: "articles"
-        search_fields: ["title"]
-        value_field: "slug"
-        display_fields: ["title"]
-        multiple: true
-        required: false
-      - name: "body"
-        label: "Body"
-        widget: "markdown"
   - name: "releases"
     label: "Releases"
     folder: "src/content/releases"

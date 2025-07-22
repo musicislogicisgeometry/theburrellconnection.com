@@ -44,7 +44,26 @@ const allReleases = await getCollection("releases");
       </a>
       <h1>{release.data.title}</h1>
       <h2>by <strong>{release.data.artist}</strong></h2>
+      <hr />
       <Content />
+      <hr />
+      Listen on:
+      <ul class="mt-4 space-y-2">
+        {
+          Object.entries(release.data.links).map(([platform, link]) => (
+            <li>
+              <a
+                href={link}
+                class="text-zinc-400 hover:text-zinc-200"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {platform.toUpperCase()}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
     </Prose>
   </section>
 </InfoLayout>
