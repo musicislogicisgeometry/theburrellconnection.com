@@ -1,35 +1,11 @@
 ---
-import { Image } from "astro:assets";
-import ACGenerator from "../assets/ac-generator.jpg";
-import ElectricMotor from "../assets/electro-magnetic-motor.jpg";
-import FluidPropulsion from "../assets/fluid-propulsion.jpg";
 import AvailableForWork from "../components/available.astro";
 import H1 from "../components/h1.astro";
 import Link from "../components/link.astro";
 import Navigation from "../components/navigation";
 import RootLayout from "../layouts/RootLayout.astro";
-
-// TODO from markdown collection
-const records = [
-  {
-    title: "AC Generator",
-    description:
-      "Transform mechanical energy into alternating current, powering the modern electric grid",
-    image: ACGenerator,
-  },
-  {
-    title: "Fluid Propulsion",
-    description:
-      "Bladeless turbine using fluid dynamics for efficient, low-friction propulsion.",
-    image: FluidPropulsion,
-  },
-  {
-    title: "Electro-Magnetic Motor",
-    description:
-      "Harness alternating current to produce smooth, efficient rotary motion.",
-    image: ElectricMotor,
-  },
-];
+import ReleaseGrid from "../components/release-grid.astro";
+import Footer from "../components/footer.astro";
 ---
 
 <RootLayout>
@@ -143,27 +119,8 @@ const records = [
     <div class="py-8 px-4 sm:pt-16 sm:px-12 pb-20 min-h-dvh" id="releases">
       <H1> Releases </H1>
 
-      <ul
-        class="mt-4 sm:mt-12 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16 sm:gap-8"
-      >
-        {
-          records.map((project) => (
-            <li>
-              <Image
-                src={project.image}
-                alt={project.title}
-                class="aspect-[1/1] object-center object-cover rounded-lg shadow-lg mb-4 sm:mb-0 sm:mr-4"
-              />
-              <div class="p-1 sm:p-2">
-                <h2 class="text-base text-zinc-100">{project.title}</h2>
-                <p class="text-sm text-zinc-400 text-balance">
-                  {project.description}
-                </p>
-              </div>
-            </li>
-          ))
-        }
-      </ul>
+      <ReleaseGrid />
     </div>
+    <Footer />
   </main>
 </RootLayout>

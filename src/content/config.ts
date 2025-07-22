@@ -27,16 +27,22 @@ const releases = defineCollection({
     pattern: ["**/*.md", "**/*.mdx"],
     base: "./src/content/releases",
   }),
-  schema: ({ image }) =>
+  schema: () =>
     z.object({
+      slug: z.string(),
       title: z.string().min(1),
       artist: z.string().min(1),
       releaseDate: z.coerce.date(),
-      cover: image(),
-      gallery: z.array(image()).optional(), // additional artwork or press shots
+      cover: z
+        .string()
+        .regex(/^\/.+\.(jpg|jpeg|png|webp|gif|svg)$/i)
+        .optional(), // allow relative URLs like /hello/world.jpg
+      gallery: z
+        .array(z.string().regex(/^\/.+\.(jpg|jpeg|png|webp|gif|svg)$/i))
+        .optional(), // allow relative URLs
 
-      description: z.string().min(10), // long-form description
-      credits: z.string().optional(), // liner notes
+      description: z.string().min(1),
+      credits: z.string().optional(),
       masteredBy: z.string().optional(),
       label: z.string().optional(),
 
@@ -45,10 +51,10 @@ const releases = defineCollection({
         .enum(["vinyl", "digital", "cassette", "CD", "other"])
         .default("digital"),
       isDraft: z.boolean().default(false),
-      isUpcoming: z.boolean().default(false), // future release flag
+      isUpcoming: z.boolean().default(false),
 
-      pressKitLink: z.string().url().optional(), // for press materials
-      recordPageLink: z.string().url().optional(), // label catalog page, etc.
+      pressKitLink: z.string().url().optional(),
+      recordPageLink: z.string().url().optional(),
 
       links: z
         .object({
@@ -63,10 +69,10 @@ const releases = defineCollection({
         .default({}),
 
       tags: z.array(z.string()).optional(),
-      relatedReleases: z.array(reference("releases")).optional(), // cross-link to other releases
-      createdAt: z.coerce.date().default(() => new Date()), // creation timestamp
-      updatedAt: z.coerce.date().optional(), // manually settable
+      relatedReleases: z.array(reference("releases")).optional(),
+      createdAt: z.coerce.date().default(() => new Date()),
+      updatedAt: z.coerce.date().optional(),
     }),
 });
 
-export const collections = { articles };
+export const collections = { articles, releases };

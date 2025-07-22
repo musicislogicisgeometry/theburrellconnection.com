@@ -14,6 +14,8 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
+    // Only include files in src/assets, ignore public images
+    assetsInclude: ["src/assets/**", "!**/images/uploads/**"],
   },
 
   integrations: [react()],
