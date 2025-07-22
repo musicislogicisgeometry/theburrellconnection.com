@@ -1,0 +1,35 @@
+---
+import { getCollection, render } from "astro:content";
+
+const allReleases = await getCollection("releases");
+---
+
+<div>
+  <ul
+    class="mt-4 sm:mt-12 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16 sm:gap-8"
+  >
+    {
+      allReleases.map((release) => (
+        <li>
+          {release.data.cover && (
+            <a href={`/releases/${release.data.slug}`}>
+              <img
+                src="/images/uploads/soulscience.jpg"
+                alt={release.data.title ?? "Release cover"}
+                class="aspect-[1/1] object-center object-cover rounded-lg shadow-lg mb-4 sm:mb-0 sm:mr-4"
+              />
+            </a>
+          )}
+          <div class="p-1 sm:p-2">
+            <a href={`/releases/${release.data.slug}`}>
+              <h2 class="text-base text-zinc-100">{release.data.title}</h2>
+            </a>
+            <p class="text-sm text-zinc-400 text-balance">
+              {release.data.description}
+            </p>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</div>

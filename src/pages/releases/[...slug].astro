@@ -1,0 +1,50 @@
+---
+import { formatDate } from "../../lib/utils";
+import Prose from "../../components/prose.astro";
+import { getCollection, render } from "astro:content";
+import InfoLayout from "../../layouts/InfoLayout.astro";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const releases = await getCollection("releases");
+
+  return releases.map((release) => ({
+    params: {
+      slug: release.data.slug,
+    },
+    props: { release },
+  }));
+}
+
+const { release } = Astro.props;
+
+if (release === undefined) {
+  return new Response("Release not found", { status: 404 });
+}
+
+const { Content } = await render(release);
+
+const allReleases = await getCollection("releases");
+---
+
+<InfoLayout title={release.data.title} frontmatter={release.data}>
+  <section class="p-4 sm:pt-8 sm:px-12 pb-20 min-h-dvh">
+    <!-- Go back to releases -->
+    <a href="/#releases" class="text-lg text-zinc-400 hover:text-zinc-200">
+      &larr; Back to Releases
+    </a>
+    <Prose>
+      <a href={`/releases/${release.data.slug}`}>
+        <img
+          src="/images/uploads/soulscience.jpg"
+          alt={release.data.title ?? "Release cover"}
+          class="aspect-[1/1] object-center object-cover rounded-lg shadow-lg"
+        />
+      </a>
+      <h1>{release.data.title}</h1>
+      <h2>by <strong>{release.data.artist}</strong></h2>
+      <Content />
+    </Prose>
+  </section>
+</InfoLayout>
