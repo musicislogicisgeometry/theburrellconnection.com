@@ -48,6 +48,7 @@ dist/
 
 # Astro preview server output
 .preview/
+.astro/fonts
 
 # Env files
 .env

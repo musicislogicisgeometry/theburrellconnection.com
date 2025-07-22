@@ -38,13 +38,6 @@
             }
           ]
         },
-        "readingDuration": {
-          "type": "number"
-        },
-        "originalLink": {
-          "type": "string",
-          "format": "uri"
-        },
         "isDraft": {
           "type": "boolean",
           "default": false
@@ -116,15 +109,12 @@
         }
       },
       "required": [
-        "cover",
         "coverAlt",
         "title",
         "slug",
         "snippet",
         "category",
-        "pubDate",
-        "readingDuration",
-        "originalLink"
+        "pubDate"
       ],
       "additionalProperties": false
     }
