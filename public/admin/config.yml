@@ -1,12 +1,9 @@
 local_backend: true
 
 backend:
-  name: github
-  repo: 0x0f0f0f/theburrellconnection.com
+  name: git-gateway
   branch: main
-  use_graphql: true # optional: switch to GitHub GraphQL API
-  preview_context: github-actions # optional: Preview context (e.g., set by CI)
-  base_url: https://theburrellconnection.com # optional for custom deploy/auth hosts
+  # base_url: https://theburrellconnection.com # optional for custom deploy/auth hosts
 
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
