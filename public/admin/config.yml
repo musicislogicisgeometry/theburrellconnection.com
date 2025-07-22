@@ -188,7 +188,7 @@ collections:
 
       - {
           name: "createdAt",
-          label: "Created At",
+          label: "Post Created At",
           widget: "datetime",
           default: "",
           required: false,
