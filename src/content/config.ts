@@ -1,27 +1,6 @@
 import { glob } from "astro/loaders";
 import { z, reference, defineCollection } from "astro:content";
 
-const articles = defineCollection({
-  loader: glob({
-    pattern: ["**/*.md", "**/*.mdx"],
-    base: "./src/content/articles",
-  }),
-  schema: ({ image }) =>
-    z.object({
-      cover: image().optional(),
-      coverAlt: z.string(),
-      title: z.string(),
-      slug: z.string(),
-      snippet: z.string(),
-      category: z.string(),
-      pubDate: z.coerce.date(),
-      isDraft: z.boolean().default(false),
-      updatedDate: z.coerce.date().optional(),
-      author: z.string().default("Retro Rocket Team"),
-      relatedArticles: z.array(reference("articles")).optional(),
-    }),
-});
-
 const releases = defineCollection({
   loader: glob({
     pattern: ["**/*.md", "**/*.mdx"],
@@ -32,6 +11,7 @@ const releases = defineCollection({
       slug: z.string(),
       title: z.string().min(1),
       artist: z.string().min(1),
+      artistLink: z.string().url().optional(),
       releaseDate: z.coerce.date(),
       cover: z
         .string()
@@ -75,4 +55,4 @@ const releases = defineCollection({
     }),
 });
 
-export const collections = { articles, releases };
+export const collections = { releases };

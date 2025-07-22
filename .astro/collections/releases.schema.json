@@ -15,6 +15,10 @@
           "type": "string",
           "minLength": 1
         },
+        "artistLink": {
+          "type": "string",
+          "format": "uri"
+        },
         "releaseDate": {
           "anyOf": [
             {
@@ -187,7 +191,7 @@
               "format": "unix-time"
             }
           ],
-          "default": "2025-07-22T15:47:35.963Z"
+          "default": "2025-07-22T16:04:27.798Z"
         },
         "updatedAt": {
           "anyOf": [
