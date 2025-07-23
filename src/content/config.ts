@@ -1,5 +1,15 @@
 import { glob } from "astro/loaders";
-import { z, reference, defineCollection } from "astro:content";
+import { z, defineCollection } from "astro:content";
+
+export const linkNames = {
+  bandcamp: "Bandcamp",
+  spotify: "Spotify",
+  soundcloud: "SoundCloud",
+  appleMusic: "Apple Music",
+  youtube: "YouTube",
+  tidal: "Tidal",
+  discogs: "Discogs",
+};
 
 const releases = defineCollection({
   loader: glob({
@@ -8,11 +18,13 @@ const releases = defineCollection({
   }),
   schema: () =>
     z.object({
-      slug: z.string(),
+      // slug: z.string(),
       title: z.string().min(1),
       artist: z.string().min(1),
-      artistLink: z.string().url().optional(),
+      artistLink: z.string().optional(),
+      otherArtists: z.array(z.string()).default([]),
       releaseDate: z.coerce.date(),
+
       cover: z
         .string()
         .regex(/^\/.+\.(jpg|jpeg|png|webp|gif|svg)$/i)
@@ -21,10 +33,10 @@ const releases = defineCollection({
         .array(z.string().regex(/^\/.+\.(jpg|jpeg|png|webp|gif|svg)$/i))
         .optional(), // allow relative URLs
 
-      description: z.string().min(1),
       credits: z.string().optional(),
       masteredBy: z.string().optional(),
       label: z.string().optional(),
+      labelLink: z.string().url().optional(),
 
       genre: z.array(z.string()).default([]),
       format: z
@@ -34,7 +46,6 @@ const releases = defineCollection({
       isUpcoming: z.boolean().default(false),
 
       pressKitLink: z.string().url().optional(),
-      recordPageLink: z.string().url().optional(),
 
       links: z
         .object({
@@ -49,9 +60,6 @@ const releases = defineCollection({
         .default({}),
 
       tags: z.array(z.string()).optional(),
-      relatedReleases: z.array(reference("releases")).optional(),
-      createdAt: z.coerce.date().default(() => new Date()),
-      updatedAt: z.coerce.date().optional(),
     }),
 });
 

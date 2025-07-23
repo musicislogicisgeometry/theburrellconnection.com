@@ -3,6 +3,7 @@ import { formatDate } from "../../lib/utils";
 import Prose from "../../components/prose.astro";
 import { getCollection, render } from "astro:content";
 import InfoLayout from "../../layouts/InfoLayout.astro";
+import { linkNames } from "../../content/config";
 
 export const prerender = true;
 
@@ -11,7 +12,7 @@ export async function getStaticPaths() {
 
   return releases.map((release) => ({
     params: {
-      slug: release.data.slug,
+      slug: release.id,
     },
     props: { release },
   }));
@@ -35,17 +36,24 @@ const allReleases = await getCollection("releases");
       &larr; Back to Releases
     </a>
     <Prose>
-      <a href={`/releases/${release.data.slug}`}>
+      <a href={`/releases/${release.id}`}>
         <img
-          src="/images/uploads/soulscience.jpg"
+          src={release.data.cover}
           alt={release.data.title ?? "Release cover"}
           class="aspect-[1/1] object-center object-cover rounded-lg shadow-lg"
         />
       </a>
-      <h1>{release.data.title}</h1>
-      <h2>by <strong>{release.data.artist}</strong></h2>
-      <hr />
-      <Content />
+      <h1>
+        <a href={release.data.artistLink ?? "/"} class="no-underline">
+          <strong>{release.data.artist}</strong>
+        </a> - {release.data.title}
+      </h1>
+      <p class="text-sm text-zinc-400">
+        Released on {formatDate(release.data.releaseDate)}
+        {release.data.isUpcoming ? " (Upcoming)" : ""}
+        on
+        <a href={release.data.labelLink ?? "/"}>{release.data.label}</a>
+      </p>
       <hr />
       Listen on:
       <ul class="mt-4 space-y-2">
@@ -58,12 +66,15 @@ const allReleases = await getCollection("releases");
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {platform.toUpperCase()}
+                {linkNames[platform as keyof typeof linkNames] ||
+                  platform.charAt(0).toUpperCase() + platform.slice(1)}
               </a>
             </li>
           ))
         }
       </ul>
+      <hr />
+      <Content />
     </Prose>
   </section>
 </InfoLayout>

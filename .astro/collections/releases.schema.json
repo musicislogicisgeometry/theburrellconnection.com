@@ -4,9 +4,6 @@
     "releases": {
       "type": "object",
       "properties": {
-        "slug": {
-          "type": "string"
-        },
         "title": {
           "type": "string",
           "minLength": 1
@@ -16,8 +13,14 @@
           "minLength": 1
         },
         "artistLink": {
-          "type": "string",
-          "format": "uri"
+          "type": "string"
+        },
+        "otherArtists": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
         },
         "releaseDate": {
           "anyOf": [
@@ -46,10 +49,6 @@
             "pattern": "^\\/.+\\.(jpg|jpeg|png|webp|gif|svg)$"
           }
         },
-        "description": {
-          "type": "string",
-          "minLength": 1
-        },
         "credits": {
           "type": "string"
         },
@@ -58,6 +57,10 @@
         },
         "label": {
           "type": "string"
+        },
+        "labelLink": {
+          "type": "string",
+          "format": "uri"
         },
         "genre": {
           "type": "array",
@@ -86,10 +89,6 @@
           "default": false
         },
         "pressKitLink": {
-          "type": "string",
-          "format": "uri"
-        },
-        "recordPageLink": {
           "type": "string",
           "format": "uri"
         },
@@ -134,91 +133,14 @@
             "type": "string"
           }
         },
-        "relatedReleases": {
-          "type": "array",
-          "items": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "string"
-                  },
-                  "collection": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "id",
-                  "collection"
-                ],
-                "additionalProperties": false
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "slug": {
-                    "type": "string"
-                  },
-                  "collection": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "slug",
-                  "collection"
-                ],
-                "additionalProperties": false
-              }
-            ]
-          }
-        },
-        "createdAt": {
-          "anyOf": [
-            {
-              "type": "string",
-              "format": "date-time"
-            },
-            {
-              "type": "string",
-              "format": "date"
-            },
-            {
-              "type": "integer",
-              "format": "unix-time"
-            }
-          ],
-          "default": "2025-07-22T16:04:27.798Z"
-        },
-        "updatedAt": {
-          "anyOf": [
-            {
-              "type": "string",
-              "format": "date-time"
-            },
-            {
-              "type": "string",
-              "format": "date"
-            },
-            {
-              "type": "integer",
-              "format": "unix-time"
-            }
-          ]
-        },
         "$schema": {
           "type": "string"
         }
       },
       "required": [
-        "slug",
         "title",
         "artist",
-        "releaseDate",
-        "description"
+        "releaseDate"
       ],
       "additionalProperties": false
     }

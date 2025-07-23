@@ -20,6 +20,19 @@ collections:
     fields:
       - { name: "title", label: "Title", widget: "string" }
       - { name: "artist", label: "Artist", widget: "string" }
+      - {
+          name: "artistLink",
+          label: "Artist Link",
+          widget: "string",
+          required: false,
+        }
+      - {
+          name: "otherArtists",
+          label: "Other Artists",
+          widget: "list",
+          field: { name: "artist", label: "Artist", widget: "string" },
+        }
+
       - { name: "releaseDate", label: "Release Date", widget: "datetime" }
 
       - { name: "cover", label: "Cover", widget: "image" }
@@ -38,6 +51,12 @@ collections:
           required: false,
         }
       - { name: "label", label: "Label", widget: "string", required: false }
+      - {
+          name: "labelLink",
+          label: "Label Link",
+          widget: "string",
+          required: false,
+        }
 
       - name: "genre"
         label: "Genre"
@@ -63,12 +82,6 @@ collections:
       - {
           name: "pressKitLink",
           label: "Press Kit URL",
-          widget: "string",
-          required: false,
-        }
-      - {
-          name: "recordPageLink",
-          label: "Record Page URL",
           widget: "string",
           required: false,
         }
@@ -120,30 +133,6 @@ collections:
         widget: "list"
         field: { name: "tag", label: "Tag", widget: "string" }
         required: false
-
-      - name: "relatedReleases"
-        label: "Related Releases"
-        widget: "relation"
-        collection: "releases"
-        search_fields: ["title"]
-        value_field: "slug"
-        display_fields: ["title"]
-        multiple: true
-        required: false
-
-      - {
-          name: "createdAt",
-          label: "Post Created At",
-          widget: "datetime",
-          default: "",
-          required: false,
-        }
-      - {
-          name: "updatedAt",
-          label: "Updated At",
-          widget: "datetime",
-          required: false,
-        }
 
       - { name: "body", label: "Body", widget: "markdown", required: false } # Optional Markdown body
 

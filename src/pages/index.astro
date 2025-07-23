@@ -6,6 +6,8 @@ import Navigation from "../components/navigation";
 import RootLayout from "../layouts/RootLayout.astro";
 import ReleaseGrid from "../components/release-grid.astro";
 import Footer from "../components/footer.astro";
+import WarpBackground from "../components/warp-background";
+import { PatternShapes } from "@paper-design/shaders-react";
 ---
 
 <RootLayout>
@@ -28,7 +30,7 @@ import Footer from "../components/footer.astro";
             opacity: 0.85,
           }}
         />
-        <!-- <WarpBackground
+        <WarpBackground
           color1="#4b4b4b"
           color2="#27272a"
           color3="#52525b"
@@ -44,7 +46,7 @@ import Footer from "../components/footer.astro";
           rotation={0.5}
           imageUrl="/background.jpg"
           client:load
-        /> -->
+        />
       </div>
 
       <div
@@ -56,12 +58,16 @@ import Footer from "../components/footer.astro";
 
         <div>
           <AvailableForWork className="py-4" />
-          <div class="mb-2 sm:mb-4 flex items-center justify-between">
-            <div class="flex items-center gap-4">
-              <Link href="#about">About</Link>
-              <Link href="#releases">Releases</Link>
-            </div>
+          <div
+            class="mb-2 sm:mb-4 flex-row items-start w-full flex-wrap gap-4 hidden sm:flex"
+          >
+            <Link href="#about">About</Link>
+            <Link href="#releases">Releases</Link>
+            <Link href="#mixes">Mixes</Link>
+            <Link href="#contact">Contact</Link>
+          </div>
 
+          <div class="flex sm:hidden mb-2 sm:mb-4">
             <Navigation client:load>
               <Link href="/blog" variant="secondary">Blog</Link>
               <Link href="/about" variant="secondary">About</Link>
@@ -71,37 +77,38 @@ import Footer from "../components/footer.astro";
         </div>
       </div>
     </div>
+  </main>
 
-    <hr class="text-white" />
+  <hr class="text-white" />
 
-    <!-- ABOUT SECTION -->
+  <!-- ABOUT SECTION -->
 
-    <div
-      id="about"
-      class="p-4 sm:pt-16 sm:px-12 pb-20 min-h-dvh flex flex-col justify-between gap-32"
-    >
-      <div class="space-y-4 sm:space-y-12">
-        <H1>About The Burrell Connection </H1>
+  <div
+    id="about"
+    class="p-4 sm:pt-16 sm:px-12 pb-20 min-h-dvh flex flex-col justify-between gap-32"
+  >
+    <div class="space-y-4 sm:space-y-12">
+      <H1>About The Burrell Connection </H1>
 
-        <p class="text-xl xl:text-2xl text-zinc-500 text-balance">
-          <a
-            href="theburrellconnection.com"
-            target="_blank"
-            class="underline underline-offset-4 decoration-zinc-400 hover:text-zinc-50 hover:decoration-zinc-200"
-          >
-            The Burrell Connection
-          </a>
-        </p>
-      </div>
-
-      <div class="space-y-2 text-base sm:text-lg">
-        <h2
-          class="px-4 text-zinc-400 underline underline-offset-4 decoration-zinc-500"
+      <p class="text-xl xl:text-2xl text-zinc-500 text-balance">
+        <a
+          href="theburrellconnection.com"
+          target="_blank"
+          class="underline underline-offset-4 decoration-zinc-400 hover:text-zinc-50 hover:decoration-zinc-200"
         >
-          Achievements
-        </h2>
+          The Burrell Connection
+        </a>
+      </p>
+    </div>
 
-        <!-- <ul class="px-4 text-zinc-400 list-disc list-outside">
+    <div class="space-y-2 text-base sm:text-lg">
+      <h2
+        class="px-4 text-zinc-400 underline underline-offset-4 decoration-zinc-500"
+      >
+        Achievements
+      </h2>
+
+      <!-- <ul class="px-4 text-zinc-400 list-disc list-outside">
           <li>Alternating Current (AC) System</li>
           <li>Tesla Coil</li>
           <li>Induction Motor</li>
@@ -110,17 +117,36 @@ import Footer from "../components/footer.astro";
           <li>Hydroelectric Power at Niagara Falls</li>
           <li>X-Ray Imaging</li>
         </ul> -->
-      </div>
     </div>
+  </div>
 
-    <!-- Releases -->
-    <hr class="text-white" />
+  <!-- Releases -->
+  <hr class="text-white" />
 
-    <div class="py-8 px-4 sm:pt-16 sm:px-12 pb-20 min-h-dvh" id="releases">
-      <H1> Releases </H1>
+  <div class="py-8 px-4 sm:pt-16 sm:px-12 pb-20 min-h-dvh" id="releases">
+    <H1>Releases</H1>
 
-      <ReleaseGrid />
-    </div>
-    <Footer />
-  </main>
+    <ReleaseGrid />
+  </div>
+
+  <!-- Mixes -->
+
+  <hr class="text-white" />
+
+  <div class="py-8 px-4 sm:pt-16 sm:px-12 pb-20 min-h-dvh" id="mixes">
+    <H1>Mixes</H1>
+
+    <ReleaseGrid />
+  </div>
+
+  <!-- Contact -->
+
+  <hr class="text-white" />
+
+  <div class="py-8 px-4 sm:pt-16 sm:px-12 pb-20 min-h-dvh" id="contact">
+    <H1>Contact</H1>
+    <p class="text-zinc-100 mt-4 sm:text-lg">Contact information</p>
+  </div>
 </RootLayout>
+
+<Footer />
