@@ -9,6 +9,24 @@ media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
 
 collections:
+  - label: "About Page"
+    name: "aboutPage"
+    files:
+      - label: "About Page"
+        name: "about"
+        file: "src/content/pages/about.md"
+        fields:
+          - { label: "Body", name: "body", widget: "markdown" }
+
+  - label: "Contact Page"
+    name: "contactPage"
+    files:
+      - label: "Contact Page"
+        name: "contact"
+        file: "src/content/pages/contact.md"
+        fields:
+          - { label: "Body", name: "body", widget: "markdown" }
+
   - name: "releases"
     label: "Releases"
     folder: "src/content/releases"
@@ -136,3 +154,101 @@ collections:
 
       - { name: "body", label: "Body", widget: "markdown", required: false } # Optional Markdown body
 
+  - name: "mixes"
+    label: "DJ Mixes"
+    folder: "src/content/mixes"
+    format: "frontmatter"
+    extension: "md"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "DJ", name: "dj", widget: "string" }
+      - { label: "DJ Link", name: "djLink", widget: "string", required: false }
+      - {
+          label: "Other DJs",
+          name: "otherDJs",
+          widget: "list",
+          required: false,
+          default: [],
+        }
+      - {
+          label: "Date",
+          name: "date",
+          widget: "datetime",
+          date_format: "YYYY-MM-DD",
+        }
+      - {
+          label: "Cover Image",
+          name: "cover",
+          widget: "image",
+          required: false,
+          media_library:
+            {
+              allow_multiple: false,
+              config: { public_folder: "/", media_folder: "/" },
+            },
+        }
+
+      - { label: "Event", name: "event", widget: "string", required: false }
+      - {
+          label: "Event Link",
+          name: "eventLink",
+          widget: "string",
+          required: false,
+        }
+      - { label: "Venue", name: "venue", widget: "string", required: false }
+      - {
+          label: "Location",
+          name: "location",
+          widget: "string",
+          required: false,
+        }
+
+      - {
+          label: "Is Draft",
+          name: "isDraft",
+          widget: "boolean",
+          default: false,
+        }
+      - {
+          label: "Is Upcoming",
+          name: "isUpcoming",
+          widget: "boolean",
+          default: false,
+        }
+
+      - label: "Links"
+        name: "links"
+        widget: "object"
+        fields:
+          - {
+              label: "SoundCloud",
+              name: "soundcloud",
+              widget: "string",
+              required: false,
+            }
+          - {
+              label: "Mixcloud",
+              name: "mixcloud",
+              widget: "string",
+              required: false,
+            }
+          - {
+              label: "YouTube",
+              name: "youtube",
+              widget: "string",
+              required: false,
+            }
+          - {
+              label: "Bandcamp",
+              name: "bandcamp",
+              widget: "string",
+              required: false,
+            }
+          - {
+              label: "Download",
+              name: "download",
+              widget: "string",
+              required: false,
+            }

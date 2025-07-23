@@ -2,10 +2,16 @@
 const { className } = Astro.props;
 ---
 
-<div class={`flex items-center gap-2 ${className}`}>
+<a href="/#contact">
+  <div
+    class={`inline-flex items-center gap-2 bg-zinc-100 text-zinc-900 ${className} px-4  rounded-4xl block my-4`}
+  >
     <span class="relative flex items-center justify-center size-3">
-        <span class="absolute inline-flex h-full w-full animate-ping duration-1000 rounded-full bg-zinc-100 opacity-75"></span>
-        <span class="relative inline-flex size-2 rounded-full bg-zinc-100"></span>
-      </span>
-      <p class="text-zinc-300">Available For Work</p>
-</div>
+      <span
+        class="absolute inline-flex h-full w-full animate-ping duration-1000 rounded-full bg-zinc-400 opacity-75"
+      ></span>
+      <span class="relative inline-flex size-2 rounded-full bg-zinc-400"></span>
+    </span>
+    <p class="text-zinc-900">Available For Work</p>
+  </div>
+</a>

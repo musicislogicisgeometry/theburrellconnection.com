@@ -2,38 +2,52 @@
 import { getCollection, render } from "astro:content";
 import { formatShortDate } from "../lib/utils";
 
-const allReleases = await getCollection("releases");
+const allMixes = (await getCollection("mixes")).filter(
+  (mix) => !mix.data.isDraft
+);
 ---
 
 <div>
-  <ul
-    class="mt-4 sm:mt-12 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16 sm:gap-8"
-  >
+  <ul class="mt-4 sm:mt-12 flex flex-col gap-16 sm:gap-8">
     {
-      allReleases.map((release, i) => (
-        <li class=" transition-transform duration-300 ease-in-out hover:scale-105">
-          {release.data.cover && (
-            <a href={`/releases/${release.id}`}>
-              <div class="overflow-hidden rounded-lg shadow-lg mb-4 sm:mb-0 group">
-                <img
-                  src={release.data.cover}
-                  alt={release.data.title ?? "Release cover"}
-                  class="aspect-[1/1] object-center object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
-                />
-              </div>
-            </a>
-          )}
-          <div class="pt-4 w-full text-center text-zinc-100">
-            <a href={`/releases/${release.id}`}>
-              <h2 class="text-xl">{release.data.title}</h2>
-              <h3 class="text-lg">
-                {release.data.artist +
-                  (release.data.otherArtists.length > 0
-                    ? `, ${release.data.otherArtists.join(", ")}`
-                    : "")}
-              </h3>
-              <p>{formatShortDate(release.data.releaseDate)}</p>
-            </a>
+      allMixes.length === 0 && (
+        <p class="text-zinc-400">There are mixes available at the moment.</p>
+      )
+    }
+    {
+      allMixes.map((mix, i) => (
+        <li class=" transition-transform duration-300 ease-in-out  text-zinc-100">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 justify-between items-start">
+            <div class="flex flex-col items-center">
+              {mix.data.cover && (
+                <a href={mix.data.link}>
+                  <div class="overflow-hidden rounded-lg shadow-lg mb-4 sm:mb-0 group">
+                    <img
+                      src={mix.data.cover}
+                      alt={mix.data.title ?? "Mix cover"}
+                      class="aspect-[1/1] object-center object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
+                    />
+                  </div>
+                </a>
+              )}
+            </div>
+            <div class="flex flex-col h-full  col-span-1 sm:col-span-2">
+              <a href={`/mixes/${mix.id}`}>
+                <h2 class="text-lg sm:text-3xl md:text-4xl">
+                  {mix.data.title}
+                </h2>
+                <h3 class="text-sm sm:text-xl md:text-2xl">
+                  {mix.data.dj +
+                    (mix.data.otherDJs.length > 0
+                      ? `, ${mix.data.otherDJs.join(", ")}`
+                      : "")}
+                </h3>
+              </a>
+              <p class="text-sm sm:text-base mt-2">
+                Recorded at {mix.data.location} on{" "}
+                {formatShortDate(mix.data.date)}.
+              </p>
+            </div>
           </div>
         </li>
       ))

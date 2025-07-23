@@ -11,6 +11,13 @@ export const linkNames = {
   discogs: "Discogs",
 };
 
+const pages = defineCollection({
+  schema: z.object({
+    // title: z.string(),
+    // date: z.string().optional(),
+  }),
+});
+
 const releases = defineCollection({
   loader: glob({
     pattern: ["**/*.md", "**/*.mdx"],
@@ -63,4 +70,36 @@ const releases = defineCollection({
     }),
 });
 
-export const collections = { releases };
+const mixes = defineCollection({
+  loader: glob({
+    pattern: ["**/*.md", "**/*.mdx"],
+    base: "./src/content/mixes",
+  }),
+  schema: () =>
+    z.object({
+      title: z.string().min(1),
+      dj: z.string().min(1),
+      djLink: z.string().url().optional(),
+      otherDJs: z.array(z.string()).default([]),
+
+      date: z.coerce.date(),
+
+      cover: z
+        .string()
+        .regex(/^\/.+\.(jpg|jpeg|png|webp|gif|svg)$/i)
+        .optional(),
+
+      event: z.string().optional(),
+      eventLink: z.string().url().optional(),
+
+      venue: z.string().optional(),
+      location: z.string().optional(),
+
+      isDraft: z.boolean().default(false),
+      isUpcoming: z.boolean().default(false),
+
+      link: z.string().url().optional(),
+    }),
+});
+
+export const collections = { pages, releases, mixes };

@@ -2,7 +2,9 @@
 import { getCollection, render } from "astro:content";
 import { formatShortDate } from "../lib/utils";
 
-const allReleases = await getCollection("releases");
+const allReleases = (await getCollection("releases")).filter(
+  (release) => !release.data.isDraft
+);
 ---
 
 <div>
@@ -10,8 +12,13 @@ const allReleases = await getCollection("releases");
     class="mt-4 sm:mt-12 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16 sm:gap-8"
   >
     {
+      allReleases.length === 0 && (
+        <p class="text-zinc-400">No releases available at the moment.</p>
+      )
+    }
+    {
       allReleases.map((release, i) => (
-        <li class=" transition-transform duration-300 ease-in-out hover:scale-105">
+        <li class=" transition-transform duration-300 ease-in-out ">
           {release.data.cover && (
             <a href={`/releases/${release.id}`}>
               <div class="overflow-hidden rounded-lg shadow-lg mb-4 sm:mb-0 group">
