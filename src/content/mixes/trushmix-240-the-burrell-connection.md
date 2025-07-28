@@ -16,5 +16,5 @@ eventLink: https://soundcloud.com/trushmix/trushmix-240-the-burell
 isDraft: false
 isUpcoming: false
 links:
-  soundcloud: https://soundcloud.com/trushmix/trushmix-240-the-burell
+  soundcloud: "https://soundcloud.com/trushmix/trushmix-240-the-burell "
 ---
