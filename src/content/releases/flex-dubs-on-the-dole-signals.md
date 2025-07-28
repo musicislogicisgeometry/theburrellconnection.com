@@ -1,5 +1,5 @@
 ---
-title: Flex Dubs & On The Dole / Signals
+title: Flex Dubs & On The Dole
 artist: The Burrell Connection
 otherArtists:
   - Nelson of The East
