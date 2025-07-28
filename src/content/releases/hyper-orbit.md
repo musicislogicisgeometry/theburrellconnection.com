@@ -2,7 +2,7 @@
 title: Hyper / Orbit
 artist: The Burrell Connection
 releaseDate: 2018-11-09T16:20:00.000+00:00
-cover: /images/uploads/a1802130949_10.jpg
+cover: /images/uploads/a0374559930_10.jpg
 description: >-
   Hyper / Orbit (Euro 12") - Craigie Knowes 2018
 
