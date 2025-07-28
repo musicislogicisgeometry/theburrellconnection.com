@@ -1,5 +1,5 @@
 ---
-title: Trushmix 240 - The Burrell Connection
+title: Trushmix 240 - The Burrell Connection (Hardware Live @ Tresor)
 dj: The Burrell Connection
 djLink: https://soundcloud.com/trushmix/trushmix-240-the-burell
 otherDJs: []
@@ -14,4 +14,6 @@ event: Trushmix 240 presents The Burrell Connection. LIVE from Globus/Tresor
   music from the top!
 isDraft: false
 isUpcoming: false
+links:
+  soundcloud: https://soundcloud.com/trushmix/trushmix-240-the-burell
 ---
