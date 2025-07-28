@@ -12,6 +12,7 @@ event: Trushmix 240 presents The Burrell Connection. LIVE from Globus/Tresor
   min live session. Techno and House. Depp electronic performed live with an
   Elektron Analog Rytm + Octatrack, Roland JD-08, Korg Minilogue + FX.  Enjoy
   music from the top!
+eventLink: https://soundcloud.com/trushmix/trushmix-240-the-burell
 isDraft: false
 isUpcoming: false
 links:
