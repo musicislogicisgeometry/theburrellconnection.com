@@ -14,6 +14,7 @@ description: >-
 
 
   Limited press of 20 vinyl.
+label: The Burrell Connection
 genre: []
 format: vinyl
 isDraft: false
