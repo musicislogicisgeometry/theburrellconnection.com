@@ -13,7 +13,7 @@ event: Trushmix 240 presents The Burrell Connection. LIVE from Globus/Tresor
   Elektron Analog Rytm + Octatrack, Roland JD-08, Korg Minilogue + FX.  Enjoy
   music from the top!
 eventLink: https://soundcloud.com/trushmix/trushmix-240-the-burell
-location: Tresor
+location: Berlin
 isDraft: false
 isUpcoming: false
 links:
