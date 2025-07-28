@@ -8,4 +8,6 @@ cover: /images/uploads/dream_e-hires-1-.jpg
 venue: DJ Mag
 isDraft: false
 isUpcoming: false
+links:
+  soundcloud: https://djmag.com/features/get-know-dreame
 ---
