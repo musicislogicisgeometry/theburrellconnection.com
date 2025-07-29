@@ -13,7 +13,8 @@
           "minLength": 1
         },
         "artistLink": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "otherArtists": {
           "type": "array",

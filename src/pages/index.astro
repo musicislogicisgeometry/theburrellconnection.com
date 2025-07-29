@@ -29,6 +29,14 @@ if (!contact) {
 }
 
 const { Content: Contact } = await render(contact);
+
+const tuition = await getEntry("pages", "tuition");
+
+if (!tuition) {
+  return new Response("Tuition page not found", { status: 404 });
+}
+
+const { Content: Tuition } = await render(tuition);
 ---
 
 <RootLayout>
@@ -86,6 +94,7 @@ const { Content: Contact } = await render(contact);
             <Link href="#about">About</Link>
             <Link href="#releases">Releases</Link>
             <Link href="#mixes">Mixes</Link>
+            <Link href="#tution">Tution</Link>
             <Link href="#contact">Contact</Link>
           </div>
 
@@ -93,6 +102,7 @@ const { Content: Contact } = await render(contact);
             <Navigation client:load>
               <Link href="/blog" variant="secondary">Blog</Link>
               <Link href="/about" variant="secondary">About</Link>
+              <Link href="#tution" variant="secondary">Tution</Link>
               <Link href="/contact" variant="secondary">Contact</Link>
             </Navigation>
           </div>
@@ -121,6 +131,20 @@ const { Content: Contact } = await render(contact);
 
   <IndexSection id="mixes" title="Mixes">
     <MixesGrid />
+  </IndexSection>
+
+  <hr class="text-white" />
+
+  <IndexSection id="features" title="Features">
+    <!-- <FeaturesGrid /> -->
+  </IndexSection>
+
+  <hr class="text-white" />
+
+  <IndexSection id="tution" title="Tution">
+    <Prose>
+      <Tuition />
+    </Prose>
   </IndexSection>
 
   <hr class="text-white" />

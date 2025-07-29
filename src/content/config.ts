@@ -28,7 +28,7 @@ const releases = defineCollection({
       // slug: z.string(),
       title: z.string().min(1),
       artist: z.string().min(1),
-      artistLink: z.string().optional(),
+      artistLink: z.string().url().optional(),
       otherArtists: z.array(z.string()).default([]),
       releaseDate: z.coerce.date(),
 
@@ -79,7 +79,6 @@ const mixes = defineCollection({
     z.object({
       title: z.string().min(1),
       dj: z.string().min(1),
-      djLink: z.string().url().optional(),
       otherDJs: z.array(z.string()).default([]),
 
       date: z.coerce.date(),
@@ -90,15 +89,13 @@ const mixes = defineCollection({
         .optional(),
 
       event: z.string().optional(),
-      eventLink: z.string().url().optional(),
+      link: z.string().url().optional(),
 
       venue: z.string().optional(),
       location: z.string().optional(),
 
       isDraft: z.boolean().default(false),
       isUpcoming: z.boolean().default(false),
-
-      link: z.string().url().optional(),
     }),
 });
 

@@ -27,6 +27,15 @@ collections:
         fields:
           - { label: "Body", name: "body", widget: "markdown" }
 
+  - label: "Tution Page"
+    name: "tutionPage"
+    files:
+      - label: "Tution Page"
+        name: "tution"
+        file: "src/content/pages/tuition.md"
+        fields:
+          - { label: "Body", name: "body", widget: "markdown" }
+
   - name: "releases"
     label: "Releases"
     folder: "src/content/releases"
@@ -43,6 +52,11 @@ collections:
           label: "Artist Link",
           widget: "string",
           required: false,
+          pattern:
+            [
+              "^https?://.+",
+              "Must be a valid URL starting with http:// or https://",
+            ],
         }
       - {
           name: "otherArtists",
@@ -74,6 +88,11 @@ collections:
           label: "Label Link",
           widget: "string",
           required: false,
+          pattern:
+            [
+              "^https?://.+",
+              "Must be a valid URL starting with http:// or https://",
+            ],
         }
 
       - name: "genre"
@@ -102,6 +121,11 @@ collections:
           label: "Press Kit URL",
           widget: "string",
           required: false,
+          pattern:
+            [
+              "^https?://.+",
+              "Must be a valid URL starting with http:// or https://",
+            ],
         }
 
       - name: "links"
@@ -113,37 +137,77 @@ collections:
               label: "Bandcamp",
               widget: "string",
               required: false,
+              pattern:
+                [
+                  "^https?://.+",
+                  "Must be a valid URL starting with http:// or https://",
+                ],
             }
           - {
               name: "spotify",
               label: "Spotify",
               widget: "string",
               required: false,
+              pattern:
+                [
+                  "^https?://.+",
+                  "Must be a valid URL starting with http:// or https://",
+                ],
             }
           - {
               name: "soundcloud",
               label: "SoundCloud",
               widget: "string",
               required: false,
+              pattern:
+                [
+                  "^https?://.+",
+                  "Must be a valid URL starting with http:// or https://",
+                ],
             }
           - {
               name: "appleMusic",
               label: "Apple Music",
               widget: "string",
               required: false,
+              pattern:
+                [
+                  "^https?://.+",
+                  "Must be a valid URL starting with http:// or https://",
+                ],
             }
           - {
               name: "youtube",
               label: "YouTube",
               widget: "string",
               required: false,
+              pattern:
+                [
+                  "^https?://.+",
+                  "Must be a valid URL starting with http:// or https://",
+                ],
             }
-          - { name: "tidal", label: "Tidal", widget: "string", required: false }
+          - {
+              name: "tidal",
+              label: "Tidal",
+              widget: "string",
+              required: false,
+              pattern:
+                [
+                  "^https?://.+",
+                  "Must be a valid URL starting with http:// or https://",
+                ],
+            }
           - {
               name: "discogs",
               label: "Discogs",
               widget: "string",
               required: false,
+              pattern:
+                [
+                  "^https?://.+",
+                  "Must be a valid URL starting with http:// or https://",
+                ],
             }
 
       - name: "tags"
@@ -164,7 +228,6 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "DJ", name: "dj", widget: "string" }
-      - { label: "DJ Link", name: "djLink", widget: "string", required: false }
       - {
           label: "Other DJs",
           name: "otherDJs",
@@ -192,10 +255,15 @@ collections:
 
       - { label: "Event", name: "event", widget: "string", required: false }
       - {
-          label: "Event Link",
-          name: "eventLink",
+          label: "Link",
+          name: "link",
           widget: "string",
           required: false,
+          pattern:
+            [
+              "^https?://.+",
+              "Must be a valid URL starting with http:// or https://",
+            ],
         }
       - { label: "Venue", name: "venue", widget: "string", required: false }
       - {
@@ -217,38 +285,3 @@ collections:
           widget: "boolean",
           default: false,
         }
-
-      - label: "Links"
-        name: "links"
-        widget: "object"
-        fields:
-          - {
-              label: "SoundCloud",
-              name: "soundcloud",
-              widget: "string",
-              required: false,
-            }
-          - {
-              label: "Mixcloud",
-              name: "mixcloud",
-              widget: "string",
-              required: false,
-            }
-          - {
-              label: "YouTube",
-              name: "youtube",
-              widget: "string",
-              required: false,
-            }
-          - {
-              label: "Bandcamp",
-              name: "bandcamp",
-              widget: "string",
-              required: false,
-            }
-          - {
-              label: "Download",
-              name: "download",
-              widget: "string",
-              required: false,
-            }

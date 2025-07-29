@@ -12,10 +12,6 @@
           "type": "string",
           "minLength": 1
         },
-        "djLink": {
-          "type": "string",
-          "format": "uri"
-        },
         "otherDJs": {
           "type": "array",
           "items": {
@@ -46,7 +42,7 @@
         "event": {
           "type": "string"
         },
-        "eventLink": {
+        "link": {
           "type": "string",
           "format": "uri"
         },
@@ -63,10 +59,6 @@
         "isUpcoming": {
           "type": "boolean",
           "default": false
-        },
-        "link": {
-          "type": "string",
-          "format": "uri"
         },
         "$schema": {
           "type": "string"

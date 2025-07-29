@@ -17,10 +17,10 @@ export default function Navigation({
         {isOpen && (
           <>
             <motion.div
-              initial={{ filter: "blur(20px)", opacity: 0 }}
+              initial={{ filter: "blur(80px)", opacity: 0 }}
               transition={{ ease: "easeInOut", duration: 0.5 }}
               animate={{ filter: "blur(0px)", opacity: 1 }}
-              exit={{ filter: "blur(20px)", opacity: 0 }}
+              exit={{ filter: "blur(80px)", opacity: 0 }}
               className="hidden lg:flex gap-4"
             >
               {children}
@@ -28,67 +28,29 @@ export default function Navigation({
 
             <motion.dialog
               open={isOpen}
-              initial={{ filter: "blur(20px)", opacity: 0 }}
+              initial={{ filter: "blur(80px)", opacity: 0 }}
               transition={{ ease: "easeInOut", duration: 0.25 }}
               animate={{ filter: "blur(0px)", opacity: 1 }}
-              exit={{ filter: "blur(20px)", opacity: 0 }}
+              exit={{ filter: "blur(80px)", opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="lg:hidden absolute z-50 w-full h-full flex flex-col gap-4 top-0 bg-zinc-900/20 backdrop-blur-md"
+              className="lg:hidden absolute z-50 w-full h-full flex flex-col gap-4 top-0 bg-zinc-900/80 backdrop-blur-md"
             >
               <div className="fixed bottom-20 sm:bottom-32 left-4 sm:left-8 flex flex-col items-start justify-center gap-4">
+                {children}
                 <a
-                  href="#about"
-                  className="w-fit flex items-center justify-center gap-3 text-lg sm:text-2xl text-zinc-100 cursor-pointer"
-                >
-                  About
-                </a>
-
-                <motion.button
-                  type="button"
+                  href="#"
                   onClick={() => setIsOpen(false)}
-                  initial={{
-                    transform: "translateY(100px)",
-                    filter: "blur(20px)",
-                    opacity: 0,
-                  }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 25,
-                    damping: 2,
-                    mass: 0.1,
-                  }}
-                  animate={{
-                    transform: "translateY(0px)",
-                    filter: "blur(0px)",
-                    opacity: 1,
-                  }}
-                  exit={{
-                    transform: "translateY(100px)",
-                    filter: "blur(20px)",
-                    opacity: 0,
-                  }}
-                  className="w-fit flex items-center justify-center gap-3 text-lg sm:text-2xl text-zinc-100 cursor-pointer"
+                  className={clsx(
+                    "w-fit text-base sm:text-2xl px-5 py-2 rounded-full transition-all duration-300 ease-in-out whitespace-nowrap",
+                    // variant === "primary" &/&
+                    // "text-zinc-900 bg-zinc-100 hover:outline-2 outline-offset-2 outline-zinc-100"
+                    // variant === "secondary" &&
+                    "text-zinc-100 hover:text-white bg-transparent hover:bg-zinc-100/20 hover:outline-2 outline-offset-2 outline-zinc-100/20"
+                    // className
+                  )}
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="32"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    aria-hidden
-                  >
-                    <title>Close Icon</title>
-                    <path
-                      fill="currentColor"
-                      d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10"
-                      opacity=".5"
-                    />
-                    <path
-                      fill="currentColor"
-                      d="M8.97 8.97a.75.75 0 0 1 1.06 0L12 10.94l1.97-1.97a.75.75 0 1 1 1.06 1.06L13.06 12l1.97 1.97a.75.75 0 0 1-1.06 1.06L12 13.06l-1.97 1.97a.75.75 0 0 1-1.06-1.06L10.94 12l-1.97-1.97a.75.75 0 0 1 0-1.06"
-                    />
-                  </svg>
                   Close
-                </motion.button>
+                </a>
               </div>
             </motion.dialog>
           </>
