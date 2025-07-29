@@ -32,14 +32,16 @@ const allReleases = (await getCollection("releases")).filter(
           )}
           <div class="pt-4 w-full text-center text-zinc-100">
             <a href={`/releases/${release.id}`}>
-              <h2 class="text-xl">{release.data.title}</h2>
-              <h3 class="text-lg">
+              <h2 class="text-base sm:text-xl">{release.data.title}</h2>
+              <h3 class="text-sm sm:text-lg">
                 {release.data.artist +
                   (release.data.otherArtists.length > 0
                     ? `, ${release.data.otherArtists.join(", ")}`
                     : "")}
               </h3>
-              <p>{formatShortDate(release.data.releaseDate)}</p>
+              <p class="text-sm sm:text-base">
+                {formatShortDate(release.data.releaseDate)}
+              </p>
             </a>
           </div>
         </li>

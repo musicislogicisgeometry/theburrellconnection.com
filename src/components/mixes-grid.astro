@@ -34,14 +34,14 @@ const allMixes = (await getCollection("mixes"))
           )}
           <div class="pt-4 w-full text-center text-zinc-100">
             <a href={mix.data.link}>
-              <h2 class="text-xl">{mix.data.title}</h2>
-              <h3 class="text-lg">
+              <h2 class="text-base sm:text-xl">{mix.data.title}</h2>
+              <h3 class="text-sm sm:text-lg">
                 {mix.data.dj +
                   (mix.data.otherDJs.length > 0
                     ? `, ${mix.data.otherDJs.join(", ")}`
                     : "")}
               </h3>
-              <p>
+              <p class="text-sm sm:text-base">
                 Recorded at {mix.data.location} on{" "}
                 {formatShortDate(mix.data.date)}.
               </p>
