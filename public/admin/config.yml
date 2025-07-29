@@ -27,11 +27,11 @@ collections:
         fields:
           - { label: "Body", name: "body", widget: "markdown" }
 
-  - label: "Tution Page"
-    name: "tutionPage"
+  - label: "Tuition Page"
+    name: "tuitionPage"
     files:
-      - label: "Tution Page"
-        name: "tution"
+      - label: "Tuition Page"
+        name: "tuition"
         file: "src/content/pages/tuition.md"
         fields:
           - { label: "Body", name: "body", widget: "markdown" }

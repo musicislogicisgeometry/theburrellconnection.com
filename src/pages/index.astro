@@ -13,6 +13,7 @@ import RootLayout from "../layouts/RootLayout.astro";
 import { getEntry, render } from "astro:content";
 import Prose from "../components/prose.astro";
 import IndexSection from "../components/index-section.astro";
+import BackgroundSlideshow from "../components/background-slideshow";
 
 const about = await getEntry("pages", "about");
 
@@ -45,7 +46,7 @@ const { Content: Tuition } = await render(tuition);
       class="group relative w-full min-h-dvh flex items-center justify-center"
     >
       <div class="absolute w-full h-dvh -z-10">
-        <img
+        <!-- <img
           src={"/background.jpg"}
           alt="Background"
           style={{
@@ -58,8 +59,15 @@ const { Content: Tuition } = await render(tuition);
             pointerEvents: "none",
             opacity: 0.85,
           }}
+        /> -->
+        <BackgroundSlideshow
+          client:load
+          images={Array.from(
+            { length: 7 },
+            (_, i) => `/images/backgrounds/background${i + 1}.jpg`
+          )}
         />
-        <WarpBackground
+        <!-- <WarpBackground
           color1="#4b4b4b"
           color2="#27272a"
           color3="#52525b"
@@ -75,7 +83,7 @@ const { Content: Tuition } = await render(tuition);
           rotation={0.5}
           imageUrl="/background.jpg"
           client:load
-        />
+        /> -->
       </div>
 
       <div
@@ -83,7 +91,12 @@ const { Content: Tuition } = await render(tuition);
         id="home"
       >
         <div>
-          <H1 size="large"> The Burrell <br /> Connection </H1>
+          <H1
+            className="text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] shadow-black"
+            size="hero"
+          >
+            The Burrell <br /> Connection
+          </H1>
         </div>
 
         <div>
@@ -91,19 +104,54 @@ const { Content: Tuition } = await render(tuition);
           <div
             class="mb-2 sm:mb-4 flex-row items-start w-full flex-wrap gap-4 hidden sm:flex"
           >
-            <Link href="#about">About</Link>
-            <Link href="#releases">Releases</Link>
-            <Link href="#mixes">Mixes</Link>
-            <Link href="#tution">Tution</Link>
-            <Link href="#contact">Contact</Link>
+            <Link
+              className="drop-shadow-[0_4px_4px_rgba(0,0,0,0.4)]"
+              href="#about">About</Link
+            >
+            <Link
+              className="drop-shadow-[0_4px_4px_rgba(0,0,0,0.4)]"
+              href="/#releases"
+            >
+              Releases
+            </Link>
+            <Link
+              className="drop-shadow-[0_4px_4px_rgba(0,0,0,0.4)]"
+              href="/#mixes"
+            >
+              Mixes
+            </Link>
+            <Link
+              className="drop-shadow-[0_4px_4px_rgba(0,0,0,0.4)]"
+              href="/#mixes"
+            >
+              Mixes
+            </Link>
+            <Link
+              className="drop-shadow-[0_4px_4px_rgba(0,0,0,0.4)]"
+              href="/#tuition"
+            >
+              Tuition
+            </Link>
+            <Link
+              className="drop-shadow-[0_4px_4px_rgba(0,0,0,0.4)]"
+              href="/#contact"
+            >
+              Contact
+            </Link>
+            <Link
+              className="drop-shadow-[0_4px_4px_rgba(0,0,0,0.4)]"
+              href="/#contact"
+            >
+              Contact
+            </Link>
           </div>
 
           <div class="flex sm:hidden mb-2 sm:mb-4">
             <Navigation client:load>
-              <Link href="/blog" variant="secondary">Blog</Link>
-              <Link href="/about" variant="secondary">About</Link>
-              <Link href="#tution" variant="secondary">Tution</Link>
-              <Link href="/contact" variant="secondary">Contact</Link>
+              <Link href="/#releases">Releases</Link>
+              <Link href="/#mixes">Mixes</Link>
+              <Link href="/#tuition">Tuition</Link>
+              <Link href="/#contact">Contact</Link>
             </Navigation>
           </div>
         </div>
@@ -141,7 +189,7 @@ const { Content: Tuition } = await render(tuition);
 
   <hr class="text-white" />
 
-  <IndexSection id="tution" title="Tution">
+  <IndexSection id="tuition" title="Tuition">
     <Prose>
       <Tuition />
     </Prose>

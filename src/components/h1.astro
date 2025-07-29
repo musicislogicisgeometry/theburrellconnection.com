@@ -4,7 +4,7 @@ import { animate, stagger, inView } from "motion";
 
 type Props = {
   className?: string;
-  size?: "default" | "large";
+  size?: "default" | "hero";
 };
 
 const { size = "default", className } = Astro.props;
@@ -14,8 +14,8 @@ const { size = "default", className } = Astro.props;
   class={clsx(
     "text-white font-bold text-balance",
     size === "default" && "text-3xl md:text-6xl xl:text-8xl tracking-tight",
-    size === "large" &&
-      "text-6xl md:text-[120px] lg:text-[160px] tracking-tighter",
+    size === "hero" &&
+      "text-5xl  sm:mt-0 sm:text-[120px] lg:text-[160px] tracking-tighter",
     className
   )}
 >
