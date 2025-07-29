@@ -17,6 +17,7 @@ description: >-
 
 
   Written by The Burrell Connection. Mastering by Beau Thomas @ Ten Eight Seven. Artwork by Guillaume de Ubéda. Distribution via Rubadub.
+label: Pace Yourself
 genre: []
 format: vinyl
 isDraft: false
