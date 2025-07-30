@@ -21,7 +21,7 @@ links:
   spotify: https://open.spotify.com/album/0kwHpRVF5hDRYFGCkpfZTw
   soundcloud: https://soundcloud.com/optimo-music/optimo-music-digital-danceforce-031-the-burrell-connection-breaks-that-strung-the-camel-back-ep
   youtube: https://www.youtube.com/watch?v=OgkQtLSAIOM&list=RDOgkQtLSAIOM
-  bandcamp: https://www.youtube.com/watch?v=WPqwLoEnmTY&list=RDWPqwLoEnmTY&start_radio=1&ab_channel=OOUKFunkyOO
+  bandcamp: https://theburrellconnection.bandcamp.com/album/breaks-that-strung-the-camel-back-ep-optimo-espacio
 ---
 A1 & B1 written in The Zen Palace, Neukölln (2020), A2 performed and recorded live at Revolver, Oslo (2019), B2 written at The Southside Centre Of Aural Technology, Shawlands (2018).
 
