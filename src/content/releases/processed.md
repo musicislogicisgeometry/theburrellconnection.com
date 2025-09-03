@@ -25,6 +25,8 @@ links:
   soundcloud: https://soundcloud.com/theburrellconnection
   discogs: https://www.discogs.com/release/22468108-Dream_E-Processed-?srsltid=AfmBOorPdbzsDE0tB8q5wBYw3nTL5VHZwUu2XGrO66R2s6ug_GQfq-J4
 ---
+<iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=3086142174/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://theburrellconnection.bandcamp.com/album/processed">Processed by The Burrell Connection</a></iframe>
+
 All tracks written by Dream_E straight to tape almost 10 years ago and on a 4 channel mixer, now recovered on a hard drive in 2022. Free 2 D/L share, on Bandcamp also free.
 
 Swatch a limited copy on Bandcamp, Clone or Rubadub.
