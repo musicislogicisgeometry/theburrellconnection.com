@@ -30,51 +30,62 @@ const allReleases = await getCollection("releases");
 ---
 
 <InfoLayout title={release.data.title} frontmatter={release.data}>
-  <section class="p-4 sm:pt-8 sm:px-12 pb-20 min-h-dvh">
-    <!-- Go back to releases -->
-    <a href="/#releases" class="text-lg text-zinc-400 hover:text-zinc-200">
-      &larr; Back to Releases
-    </a>
-    <Prose>
-      <a href={`/releases/${release.id}`}>
-        <img
-          src={release.data.cover}
-          alt={release.data.title ?? "Release cover"}
-          class="aspect-[1/1] object-center object-cover rounded-lg shadow-lg"
-        />
+  <!-- Go back to releases -->
+  <Prose>
+    <div class="p-8 -mb-8">
+      <a href="/#releases" class="text-lg text-zinc-400 hover:text-zinc-200">
+        &larr; Back to Releases
       </a>
-      <h1>
-        <a href={release.data.artistLink ?? "/"} class="no-underline">
-          <strong>{release.data.artist}</strong>
-        </a> - {release.data.title}
-      </h1>
-      <p class="text-sm text-zinc-400">
-        Released on {formatDate(release.data.releaseDate)}
-        {release.data.isUpcoming ? " (Upcoming)" : ""}
-        on
-        <a href={release.data.labelLink ?? "/"}>{release.data.label}</a>
-      </p>
-      <hr />
-      Listen on:
-      <ul class="mt-4 space-y-2">
-        {
-          Object.entries(release.data.links).map(([platform, link]) => (
-            <li>
-              <a
-                href={link}
-                class="text-zinc-400 hover:text-zinc-200"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {linkNames[platform as keyof typeof linkNames] ||
-                  platform.charAt(0).toUpperCase() + platform.slice(1)}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-      <hr />
-      <Content />
-    </Prose>
-  </section>
+    </div>
+  </Prose>
+  <div class="flex flex-col lg:flex-row gap-8 w-full p-8">
+    <div class="w-full flex-1">
+      <Prose>
+        <a href={`/releases/${release.id}`} class="mt-0">
+          <img
+            src={release.data.cover}
+            alt={release.data.title ?? "Release cover"}
+            class="aspect-[1/1] object-center object-cover rounded-lg mt-0 shadow-lg w-full"
+          />
+        </a>
+      </Prose>
+    </div>
+    <div class="flex-1 w-full">
+      <Prose class="mt-4 w-full">
+        <h1>
+          <a href={release.data.artistLink ?? "/"} class="no-underline">
+            <strong>{release.data.artist}</strong>
+          </a> - {release.data.title}
+        </h1>
+        <hr />
+        <p class="text-sm text-zinc-400">
+          Released on {formatDate(release.data.releaseDate)}
+          {release.data.isUpcoming ? " (Upcoming)" : ""}
+          on
+          <a href={release.data.labelLink ?? "/"}>{release.data.label}</a>
+        </p>
+        <Content />
+        <hr />
+        Listen on:
+        <ul class="mt-4 space-y-2">
+          {
+            Object.entries(release.data.links).map(([platform, link]) => (
+              <li>
+                <a
+                  href={link}
+                  class="text-zinc-400 hover:text-zinc-200"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {linkNames[platform as keyof typeof linkNames] ||
+                    platform.charAt(0).toUpperCase() + platform.slice(1)}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <hr />
+      </Prose>
+    </div>
+  </div>
 </InfoLayout>

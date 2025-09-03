@@ -21,4 +21,7 @@ links:
   discogs: https://www.discogs.com/release/19242970-Dream_E-Crushed-?srsltid=AfmBOopsZHAq-55A06wHW1t7eroA_3NaKPK7F8evqamxHkX3Y4i9x011
   youtube: https://www.youtube.com/watch?v=HRXdtPe8_LA&list=RDHRXdtPe8_LA&start_radio=1&ab_channel=BoltingBits
 ---
+
+<iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=697071064/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://theburrellconnection.bandcamp.com/album/crushed">Crushed by The Burrell Connection</a></iframe>
+
 From the Southside of Glasgow now the south side of Berlin, previously most notably The Burrell Connection, but also Alfie and DJ59, focusses on Dream_E. Kicking off the self-titled vinyl and digi imprint with a mix of Breaks, House & Techno, "Crushed" follows in hot pursuit of the acclaimed "Dreams On 22" Ambient / IDM album released last year on Pace Yourself and a number of releases via longtime fellow deejays, Craigie Knowes. A donation will be made to The Encephalitis Society following each release.
