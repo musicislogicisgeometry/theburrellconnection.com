@@ -1,8 +1,7 @@
 ---
 title: Flex Dubs & On The Dole
 artist: The Burrell Connection
-otherArtists:
-  - Nelson of The East
+otherArtists: []
 releaseDate: 2024-06-24T00:00:00.000+02:00
 cover: /images/uploads/flexdubs.jpg
 gallery: []
