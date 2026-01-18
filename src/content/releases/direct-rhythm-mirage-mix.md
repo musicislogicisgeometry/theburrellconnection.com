@@ -1,5 +1,5 @@
 ---
-title: Direct Rhythm (Mirage Mix
+title: Direct Rhythm (Mirage Mix)
 artist: " The Burrell Connection"
 releaseDate: 2025-10-21T16:29:00.000+02:00
 cover: /images/uploads/label_square_with_logo.png
